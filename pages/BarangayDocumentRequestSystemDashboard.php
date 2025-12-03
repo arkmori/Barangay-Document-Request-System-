@@ -185,5 +185,6 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
     function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active'); }
     function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('active'); }
   </script>
+  
 </body>
 </html>

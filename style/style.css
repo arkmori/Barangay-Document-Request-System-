@@ -156,6 +156,7 @@ body {
     border-left: 1px solid #e0e0e0;
     background-color: rgba(255, 255, 255, 0.6);
     padding: 24px;
+    padding-top: 5px;
     flex-shrink: 0;
   }
   
@@ -173,11 +174,11 @@ body {
 .logo { width: 86px; height: 86px; margin: 66px 0 40px 68px; }
 
 /* Sidebar Profile */
-.sidebar-profile { display: flex; flex-direction: column; align-items: center; margin-bottom: 78px; margin-top: 40px; }
+.sidebar-profile { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; margin-top: 10px; }
 .profile-image { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 16px; }
 .profile-name { font-size: 23px; font-family: Montserrat; font-weight: 700; line-height: 29px; text-align: center; color: #1c1c1c; margin-bottom: 16px; }
 .user-badge { background-color: #fecb00; color: #000000; font-size: 14px; font-family: Montserrat; font-weight: 500; padding: 4px 24px; border-radius: 14px; border: none; cursor: pointer; }
-
+.profile-seal { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px;}
 /* Menu */
 .sidebar-menu { display: flex; flex-direction: column; gap: 0; margin-bottom: 134px; }
 
@@ -244,21 +245,16 @@ body {
 .step-title { font-size: 19px; font-family: Montserrat; font-weight: 700; color: #004520; margin-bottom: 4px; }
 .step-description { font-size: 15px; font-family: Montserrat; font-weight: 500; color: #004520; }
 
-/* =========================================
-   4. LOGIN & REGISTER PAGE STYLES
-   ========================================= */
 
-/* Main wrapper specific for Login to center content vertically */
 .main-container {
-  /* Inherits flex from desktop styles, but we ensure content is centered */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-/* The Mascot Image (Bottom Left) */
+
 .character-image {
-  display: none; /* Hidden on mobile by default */
+  display: none; 
   position: absolute;
   bottom: 0;
   left: 5%;
@@ -548,11 +544,7 @@ body {
     justify-content: center; 
   }
 } 
-(min-width: 992px) {
-  
-  .character-image {
-    display: block; 
-  }
+
 
   /* 1. Remove padding from the row so the box touches the edges */
   .content-row {
@@ -614,7 +606,8 @@ body {
     flex-direction: column;
     justify-content: center; 
   }
-}@media (min-width: 992px) {
+
+@media (min-width: 992px) {
   
   .character-image {
     display: block; /* Show mascot */
