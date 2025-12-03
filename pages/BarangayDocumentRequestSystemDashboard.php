@@ -63,7 +63,7 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
           </button>
           
           <button class="logout-item" onclick="window.location.href='logout.php'">
-             <img src="../assets/images/img_icon.svg" alt="Icon" class="logout-icon">
+             <img src="../assets/images/img_logout.svg" alt="Icon" class="logout-icon">
              <span>Log Out</span>
           </button>
         </nav>
@@ -79,42 +79,42 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
         <section class="documents-container">
           <div class="documents-grid">
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Barangay Certificate of Residency</h3>
             </article>
 
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Barangay Clearance</h3>
             </article>
 
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Certificate of Indigency</h3>
             </article>
 
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Business Clearance</h3>
             </article>
 
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Certificate of Residency for Scholarship</h3>
             </article>
 
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Barangay Certification for Building Permit</h3>
             </article>
 
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Barangay Blotter Record/ Incident Report</h3>
             </article>
             
             <article class="document-card">
-              <img src="../assets/images/img_image_9.png" alt="Icon" class="document-icon">
+              <img src="../assets/images/img_icon_document.svg" alt="Icon" class="document-icon">
               <h3 class="document-title">Barangay Protection Order (BPO)</h3>
             </article>
           </div>
@@ -148,7 +148,7 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
             <p class="step-description">Click the "Request Now" button</p>
         </div>
         <div class="step-icon">
-             <img src="../assets/images/img_image_1.png" alt="Step 1" style="width: 48px; height: 16px;">
+             <img src="../assets/images/img_step1.svg" alt="Step 1" style="width: 48px; height: 16px;">
         </div>
       </div>
 
@@ -157,7 +157,7 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
             <h3 class="step-title">Step #2</h3>
             <p class="step-description">Fill-out the request form</p>
         </div>
-        <img src="../assets/images/img_image_3.png" alt="Step 2" style="width: 76px; height: 64px;">
+        <img src="../assets/images/img_step2.svg" alt="Step 2" style="width: 76px; height: 64px;">
       </div>
 
       <div class="step-item">
@@ -165,7 +165,7 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
             <h3 class="step-title">Step #3</h3>
             <p class="step-description">Wait for the Barangay Office to review.</p>
         </div>
-        <img src="../assets/images/img_70_iconos_grati.png" alt="Step 3" style="width: 52px; height: 52px;">
+        <img src="../assets/images/img_step3.svg" alt="Step 3" style="width: 52px; height: 52px;">
       </div>
 
       <div class="step-item">
@@ -175,7 +175,7 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
         </div>
         <div style="display: flex; flex-direction: column; align-items: center;">
             <img src="../assets/images/img_24_time_calendar_checked.svg" alt="Calendar" style="width: 14px; height: 14px; margin-bottom: 2px;">
-            <img src="../assets/images/img_image_5.png" alt="Step 4" style="width: 50px; height: 38px;">
+            <img src="../assets/images/img_step4mail.svg" alt="Step 4" style="width: 50px; height: 38px;">
         </div>
       </div>
     </aside>

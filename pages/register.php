@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register_btn'])) {
 <body>
   <main class="main-container">
     <div class="background-overlay"></div>
-    <img src="../assets/images/img_laya_at_diwa_edited.png" alt="Mascot" class="character-image">
+    <img src="../assets/images/login background.svg" alt="Mascot" class="character-image">
     
     <div class="content-wrapper">
       <section class="main-content">
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register_btn'])) {
           <div class="left-section">
             <div class="logo-container">
               <div class="logo-background"></div>
-              <img src="../assets/images/img_barangay_seal.png" alt="Seal" class="logo-image">
+              <img src="../assets/images/barangay seal.svg" alt="Seal" class="logo-image">
             </div>
             <h1 class="system-title">Barangay Document Request System</h1>
             <p class="system-subtitle">Create your account to request documents online.</p>

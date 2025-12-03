@@ -40,8 +40,8 @@ if (isset($_POST['submit_request'])) {
   <div class="main-container">
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-profile">
-            <div class="profile-seal-container"><div class="profile-seal-bg"></div><img src="../assets/images/img_barangay_seal.png" alt="Seal" class="profile-seal"></div>
-            <img src="../assets/images/<?php echo $_SESSION['profile_pic'] ?? 'img_profile.png'; ?>" alt="Profile" class="profile-image">
+            <div class="profile-seal-container"><div class="profile-seal-bg"></div><img src="../assets/images/barangay seal.svg" alt="Seal" class="profile-seal"></div>
+            <img src="../assets/images/<?php echo $_SESSION['profile_pic'] ?? 'img_profile.svg'; ?>" alt="Profile" class="profile-image">
             <h2 class="profile-name"><?php echo $_SESSION['full_name'] ?? 'User'; ?></h2>
             <span class="user-badge">User</span>
         </div>
@@ -50,7 +50,7 @@ if (isset($_POST['submit_request'])) {
             <button class="menu-item active" onclick="window.location.href='SeeiMUBarangayDocumentRequestDashboard.php'"><span class="menu-text">Documents</span></button>
             <button class="menu-item" onclick="window.location.href='BarangayDocumentRequestSystemRequestHistory.php'"><span class="menu-text">Request History</span></button>
             <button class="menu-item" onclick="window.location.href='SeeiMUBarangayDocumentRequestSystemAccountDashboard.php'"><span class="menu-text">Account & Settings</span></button>
-            <button class="logout-item" onclick="window.location.href='logout.php'"><img src="../assets/images/img_icon.svg" class="logout-icon"><span>Log Out</span></button>
+            <button class="logout-item" onclick="window.location.href='logout.php'"><img src="../assets/images/img_logout.svg" class="logout-icon"><span>Log Out</span></button>
         </nav>
     </aside>
 
@@ -101,7 +101,7 @@ if (isset($_POST['submit_request'])) {
             <p class="step-description">Click the "Request Now" button</p>
         </div>
         <div class="step-icon">
-             <img src="../assets/images/img_image_1.png" alt="Step 1" style="width: 48px; height: 16px;">
+             <img src="../assets/images/img_step1.svg" alt="Step 1" style="width: 48px; height: 16px;">
         </div>
       </div>
 
@@ -110,7 +110,7 @@ if (isset($_POST['submit_request'])) {
             <h3 class="step-title">Step #2</h3>
             <p class="step-description">Fill-out the request form</p>
         </div>
-        <img src="../assets/images/img_image_3.png" alt="Step 2" style="width: 76px; height: 64px;">
+        <img src="../assets/images/img_step2.svg" alt="Step 2" style="width: 76px; height: 64px;">
       </div>
 
       <div class="step-item">
@@ -118,7 +118,7 @@ if (isset($_POST['submit_request'])) {
             <h3 class="step-title">Step #3</h3>
             <p class="step-description">Wait for the Barangay Office to review.</p>
         </div>
-        <img src="../assets/images/img_70_iconos_grati.png" alt="Step 3" style="width: 52px; height: 52px;">
+        <img src="../assets/images/img_step3.svg" alt="Step 3" style="width: 52px; height: 52px;">
       </div>
 
       <div class="step-item">
@@ -128,7 +128,7 @@ if (isset($_POST['submit_request'])) {
         </div>
         <div style="display: flex; flex-direction: column; align-items: center;">
             <img src="../assets/images/img_24_time_calendar_checked.svg" alt="Calendar" style="width: 14px; height: 14px; margin-bottom: 2px;">
-            <img src="../assets/images/img_image_5.png" alt="Step 4" style="width: 50px; height: 38px;">
+            <img src="../assets/images/img_step4mail.svg" alt="Step 4" style="width: 50px; height: 38px;">
         </div>
       </div>
     </aside>
