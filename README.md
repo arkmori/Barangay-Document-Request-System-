@@ -1,2 +1,3 @@
 # Barangay-Document-Request-System-
-Placeholder account: SeeiMU@sample.com | 123
+# Final Project for IT-55
+# A website for barangay constituents to conveniently request pertinent documents
