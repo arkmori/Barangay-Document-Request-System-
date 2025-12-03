@@ -1,0 +1,659 @@
+/* =========================================
+   1. RESET & BASE STYLES
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #ffffff;
+  /* Ensure you have the image in the correct path relative to this CSS file */
+  background-image: url('../assets/images/img_rectangle_5.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* LAYOUT ENGINE: FIXED VIEWPORT */
+  height: 100vh; 
+  width: 100vw;
+  overflow: hidden; /* Prevents whole page scroll */
+}
+
+/* Wrapper */
+.main-container {
+  width: 100%;
+  height: 100%;
+  /* Default Mobile: Block layout */
+  display: block; 
+  position: relative;
+}
+
+/* =========================================
+   2. MOBILE / DEFAULT STYLES (Styles < 992px)
+   ========================================= */
+
+/* Mobile Header */
+.mobile-header {
+  display: block;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 600;
+  color: #474747;
+}
+
+.hamburger {
+  display: block;
+  position: absolute;
+  left: 16px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  font-size: 24px; cursor: pointer;
+}
+
+/* LEFT SIDEBAR (Mobile: Hidden Off-Screen) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px; /* Hidden */
+  width: 280px;
+  height: 100vh;
+  z-index: 2000; /* High Z-index for mobile overlap */
+  transition: left 0.3s ease;
+  background-color: #ffffff;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+}
+
+.sidebar.open { left: 0; }
+
+/* OVERLAY */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+}
+.sidebar-overlay.active { display: block; }
+
+/* MAIN CONTENT (Mobile: Full width, scrolls vertically) */
+.main-content {
+  margin-top: 60px; /* Space for header */
+  padding: 20px;
+  height: calc(100vh - 60px);
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* RIGHT SIDEBAR (Mobile: Hidden) */
+.right-sidebar { display: none; }
+
+
+/* =========================================
+   3. DESKTOP LAYOUT (Screen > 992px)
+   ========================================= */
+@media (min-width: 992px) {
+  
+  /* Force Flexbox Row */
+  .main-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+  }
+
+  /* HIDE Mobile Elements */
+  .mobile-header, 
+  .hamburger, 
+  .sidebar-overlay {
+    display: none !important;
+  }
+
+  /* LEFT SIDEBAR: Visible, Static, No Z-Index overlap */
+  .sidebar {
+    position: relative !important; /* Stop floating */
+    left: auto !important;
+    top: auto !important;
+    width: 280px !important;
+    min-width: 280px !important; /* Prevent shrinking */
+    height: 100% !important;
+    display: block !important;
+    z-index: 1 !important; /* Reset z-index */
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* MAIN CONTENT: Flex 1 (Takes remaining space), Scrolls */
+  .main-content {
+    flex: 1 !important;
+    margin-top: 0 !important;
+    padding: 40px !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+    /* Ensure it's not hidden */
+    display: block !important; 
+    width: auto !important;
+  }
+
+  /* RIGHT SIDEBAR: Visible, Fixed Width */
+  .right-sidebar {
+    display: block !important;
+    width: 320px !important;
+    min-width: 320px !important; /* Prevent shrinking */
+    height: 100% !important;
+    overflow-y: auto !important;
+    border-left: 1px solid #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 24px;
+    flex-shrink: 0;
+  }
+  
+  /* Layout Adjustments for Desktop Content */
+  .cards-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .card { flex: 1; }
+  .hero-title { font-size: 32px; line-height: 42px; }
+}
+
+
+.logo { width: 86px; height: 86px; margin: 66px 0 40px 68px; }
+
+/* Sidebar Profile */
+.sidebar-profile { display: flex; flex-direction: column; align-items: center; margin-bottom: 78px; margin-top: 40px; }
+.profile-image { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 16px; }
+.profile-name { font-size: 23px; font-family: Montserrat; font-weight: 700; line-height: 29px; text-align: center; color: #1c1c1c; margin-bottom: 16px; }
+.user-badge { background-color: #fecb00; color: #000000; font-size: 14px; font-family: Montserrat; font-weight: 500; padding: 4px 24px; border-radius: 14px; border: none; cursor: pointer; }
+
+/* Menu */
+.sidebar-menu { display: flex; flex-direction: column; gap: 0; margin-bottom: 134px; }
+
+.menu-item { 
+  display: flex; 
+  align-items: center; 
+  padding: 26px; 
+  color: #1c1c1c7f; 
+  text-decoration: none; 
+  font-size: 16px; 
+  font-family: Montserrat; 
+  font-weight: 700; 
+  transition: all 0.3s ease; 
+  border: none; 
+  background: none; 
+  cursor: pointer; 
+  width: 100%; 
+  text-align: left; 
+}
+
+.menu-item:hover { background-color: #f3f4f6; color: #1c1c1c; }
+.menu-item.active { background-color: #00813d; color: #ffffff; }
+
+.menu-text { margin-left: 32px; }
+
+.logout-item { display: flex; align-items: center; justify-content: flex-end; color: #474747; font-size: 14px; font-family: Montserrat; font-weight: 600; padding: 20px; border: none; background: none; cursor: pointer; width: 100%; }
+.logout-icon { width: 8px; height: 10px; margin-right: 12px; }
+
+/* Content Styling */
+.content-wrapper { max-width: 95%; margin: 0 auto; }
+.hero-section { margin-bottom: 30px; }
+.hero-title { font-size: 24px; font-family: Montserrat; font-weight: 700; color: #1c1c1c; margin-bottom: 44px; }
+.hero-subtitle { font-size: 16px; font-family: Montserrat; font-weight: 500; color: #1c1c1c; margin-bottom: 46px; }
+.highlight { font-weight: 700; color: #468966; }
+
+.request-button { background-color: #00813d; color: #ffffff; font-size: 16px; font-family: Montserrat; font-weight: 600; padding: 12px 34px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 30px; }
+.request-button:hover { background-color: #006b33; transform: translateY(-2px); }
+
+/* Cards */
+.cards-section { display: flex; flex-direction: column; gap: 18px; margin-bottom: 30px; }
+.card { background-color: #ffffff; border: 1px solid #353535; border-radius: 6px; box-shadow: 0px 4px 4px rgba(0,0,0,0.25); overflow: hidden; }
+.card-header { background-color: #00813d; color: #ffffff; padding: 12px; text-align: center; font-size: 17px; font-family: Montserrat; font-weight: 700; }
+.card-content { padding: 12px; }
+.announcement-text { font-size: 11px; font-family: Montserrat; font-weight: 500; margin-bottom: 22px; }
+.transaction-card { background-color: rgba(255,255,255,0.29); }
+.transaction-text { font-size: 11px; font-family: Montserrat; font-weight: 700; margin-bottom: 16px; }
+
+/* FAQ */
+.faq-section { background-color: #ffffff; border: 1px solid #353535; border-radius: 6px; box-shadow: 0px 4px 4px rgba(0,0,0,0.25); overflow: hidden; margin-bottom: 40px; }
+.faq-header { background-color: #00813d; color: #ffffff; padding: 8px; text-align: center; font-size: 16px; font-family: Montserrat; font-weight: 700; }
+.faq-content { padding: 12px 22px; }
+.faq-item { font-size: 12px; font-family: Montserrat; font-weight: 500; color: #004520; text-decoration: underline; margin-bottom: 8px; cursor: pointer; }
+
+.footer-text { font-size: 13px; font-family: Montserrat; font-weight: 600; text-align: center; color: #6c6c6c; margin: 40px 38px; }
+
+/* Right Sidebar Visuals */
+.notification-icon { width: 20px; height: 20px; display: block; margin-left: auto; margin-bottom: 46px; }
+.steps-card { background-color: #f6fff1; border-radius: 16px; padding: 6px; margin: 6px 0; box-shadow: 0px 4px 4px rgba(0,0,0,0.25); }
+.steps-header { display: flex; align-items: center; justify-content: space-between; padding: 12px; margin-bottom: 28px; }
+.steps-number { font-size: 72px; font-family: Montserrat; font-weight: 700; color: #00813d; }
+.steps-title { font-size: 19px; font-family: Montserrat; font-weight: 700; color: #00813d; text-transform: uppercase; margin-left: 16px; flex: 1; }
+.step-item { background-color: #f6fff1; border-radius: 12px; padding: 14px 16px; margin-bottom: 28px; box-shadow: 0px 4px 4px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 14px; }
+.step-content { flex: 1; }
+.step-title { font-size: 19px; font-family: Montserrat; font-weight: 700; color: #004520; margin-bottom: 4px; }
+.step-description { font-size: 15px; font-family: Montserrat; font-weight: 500; color: #004520; }
+
+/* =========================================
+   4. LOGIN & REGISTER PAGE STYLES
+   ========================================= */
+
+/* Main wrapper specific for Login to center content vertically */
+.main-container {
+  /* Inherits flex from desktop styles, but we ensure content is centered */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* The Mascot Image (Bottom Left) */
+.character-image {
+  display: none; /* Hidden on mobile by default */
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 30vw; /* Responsive width */
+  max-width: 400px;
+  z-index: 0;
+  pointer-events: none; /* Lets clicks pass through if it overlaps */
+}
+
+/* Split Screen Layout Wrapper */
+.content-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  gap: 40px;
+  padding: 20px;
+}
+
+/* --- Left Section (Branding) --- */
+.left-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo-container {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.system-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #00813d; /* Green Brand Color */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.system-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  background-color: rgba(255,255,255,0.7); /* Readable on bg image */
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* --- Right Section (The Login Card) --- */
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #e0e0e0;
+}
+
+/* Tabs (User / Register) */
+.tab-header {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 25px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #999;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none; /* If using <a> tag */
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+  color: #00813d;
+  border-bottom: 3px solid #00813d;
+  font-weight: 700;
+}
+
+.tab-button:hover {
+  color: #00813d;
+}
+
+/* Form Styles */
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1c1c1c;
+  letter-spacing: 0.5px;
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-top: 6px;
+}
+
+.field-group {
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.field-input {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.field-input:focus {
+  background-color: #fff;
+  border-color: #00813d;
+  outline: none;
+}
+
+/* Links & Buttons */
+.password-actions {
+  text-align: right;
+  margin-top: 6px;
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: #00813d;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #00813d;
+  color: white;
+  padding: 14px;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #006630;
+}
+
+.login-button:active {
+  transform: scale(0.98);
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+.link-text {
+  color: #00813d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+
+@media (min-width: 992px) {
+  
+  .character-image {
+    display: block; 
+  }
+
+  /* --- FIX 1: UNLOCK PARENT CONTAINERS --- */
+  /* Force the wrapper to be full width/height on Login Page */
+  .main-container > .content-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh;
+  }
+
+  /* Remove padding from main-content specifically on Login Page */
+  .content-wrapper > .main-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+  }
+
+  /* --- FIX 2: ROW LAYOUT --- */
+  /* Now the row can actually touch the edges */
+  .content-row {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0;
+    max-width: 100%;
+    height: 100vh;
+  }
+
+  /* Left Section styling */
+  .left-section {
+    text-align: left;
+    width: 55%;
+    max-width: none;
+    margin: 0;
+    padding: 60px; /* Internal padding for text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }
+
+  .system-title { font-size: 32px; }
+  .logo-container { margin-left: 0; }
+
+  /* Right Section styling */
+  .right-section {
+    width: 45%; 
+    max-width: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  
+  /* --- FIX 3: FULL HEIGHT/WIDTH SIDEBAR --- */
+  .auth-container {
+    margin: 0;          /* Remove margins */
+    height: 100%;       /* Touch Top & Bottom */
+    width: 100%;        /* Touch Right Edge (fills right-section) */
+    max-width: 100%;    
+    
+    border-radius: 0;   /* Square edges */
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    border: none;
+    border-left: 1px solid #e0e0e0;
+    
+    /* Center the form internally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }
+} 
+(min-width: 992px) {
+  
+  .character-image {
+    display: block; 
+  }
+
+  /* 1. Remove padding from the row so the box touches the edges */
+  .content-row {
+    flex-direction: row;
+    align-items: stretch; /* Stretch children to full height */
+    justify-content: space-between;
+    padding: 0; /* REMOVED PADDING */
+    max-width: 100%; /* Allow full width */
+    height: 100vh; /* Force full height */
+  }
+
+  /* Left section positioning */
+  .left-section {
+    text-align: left;
+    width: 55%; /* Take up left space */
+    max-width: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 60px; /* Add padding here instead of the container */
+    
+    /* Vertically center the text on the left */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }
+
+  .system-title {
+    font-size: 32px;
+  }
+  
+  .logo-container {
+    margin-left: 0;
+  }
+
+  /* 2. Right section becomes a full column */
+  .right-section {
+    width: 45%; /* Fixed width for the sidebar */
+    max-width: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Fill the height */
+  }
+  
+  /* 3. The Auth Container fills the Right Section */
+  .auth-container {
+    margin-right: 0; 
+    height: 100%; /* Reach the bottom (and top) */
+    max-width: 100%; /* Fill the width of the right section */
+    width: 100%;
+    
+    /* Remove rounded corners and shadows for a "Sidebar" look */
+    border-radius: 0; 
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1); /* Shadow on the left edge only */
+    border: none;
+    border-left: 1px solid #e0e0e0;
+    
+    /* Center the form content vertically inside this tall bar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }
+}@media (min-width: 992px) {
+  
+  .character-image {
+    display: block; /* Show mascot */
+  }
+
+  .content-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  /* Left section (Text) moves to the left side */
+  .left-section {
+    text-align: left;
+    max-width: 45%;
+    margin-top: 0;
+    margin-bottom: 80px; /* Push up slightly to not hit mascot */
+  }
+
+  .system-title {
+    font-size: 32px;
+  }
+  
+  .logo-container {
+    margin-left: 0;
+  }
+
+  /* Right section (Form) moves to the right side */
+  .right-section {
+    max-width: 50%;
+    justify-content: flex-end;
+  }
+  
+  .auth-container {
+    margin-right: 40px; /* Space from edge */
+  }
+  .login-footer {
+    padding: 30px;
+    margin: 30px;
+  }
+}
