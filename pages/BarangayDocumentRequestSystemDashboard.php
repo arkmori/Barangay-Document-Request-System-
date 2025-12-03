@@ -38,7 +38,7 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
         <div class="sidebar-profile">
           <div class="profile-seal-container">
             <div class="profile-seal-bg"></div>
-            <img src="../assets/images/img_barangay_seal.png" alt="Barangay Seal" class="profile-seal">
+            <img src="../assets/images/barangay seal.svg" alt="Barangay Seal" class="profile-seal">
           </div>
           <img src="../assets/images/<?php echo $_SESSION['profile_pic'] ?? 'img_profile.png'; ?>" alt="Profile" class="profile-image">
           <h2 class="profile-name"><?php echo $_SESSION['full_name'] ?? 'User'; ?></h2>
