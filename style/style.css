@@ -254,12 +254,12 @@ body {
 
 
 .character-image {
-  display: none; 
-  position: absolute;
+  display: block; 
+  position: fixed;
   bottom: 0;
-  left: 5%;
+  left: 0%;
   width: 30vw; /* Responsive width */
-  max-width: 400px;
+  max-width: fit-content;
   z-index: 0;
   pointer-events: none; /* Lets clicks pass through if it overlaps */
 }
@@ -327,6 +327,7 @@ body {
 .auth-container {
   background: #ffffff;
   width: 100%;
+  height:100vh;
   max-width: 420px;
   padding: 30px;
   border-radius: 16px;
@@ -529,7 +530,7 @@ body {
   /* --- FIX 3: FULL HEIGHT/WIDTH SIDEBAR --- */
   .auth-container {
     margin: 0;          /* Remove margins */
-    height: 100%;       /* Touch Top & Bottom */
+    height: 100vh;       /* Touch Top & Bottom */
     width: 100%;        /* Touch Right Edge (fills right-section) */
     max-width: 100%;    
     
@@ -591,7 +592,7 @@ body {
   /* 3. The Auth Container fills the Right Section */
   .auth-container {
     margin-right: 0; 
-    height: 100%; /* Reach the bottom (and top) */
+    height: 100vh; /* Reach the bottom (and top) */
     max-width: 100%; /* Fill the width of the right section */
     width: 100%;
     
@@ -610,7 +611,10 @@ body {
 @media (min-width: 992px) {
   
   .character-image {
-    display: block; /* Show mascot */
+    display: block;
+    background-repeat: no-repeat;
+    width:max-content;
+    background-size:cover
   }
 
   .content-row {

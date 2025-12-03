@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login_btn'])) {
         </div>
       </section>
       <footer class="footer-text" class="login-footer">
-              <span class="highlight">SeeiMU Website</span> | © Copyright 2025 SeeiMUU | Barangay Document Request System
+              <span class="highlight">SeeiMU Website</span> | © Copyright 2025 SeeiMU | Barangay Document Request System
             </footer>
     </div>
   </main>
