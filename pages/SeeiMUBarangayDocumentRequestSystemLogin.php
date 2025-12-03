@@ -1,6 +1,4 @@
 <?php
-// Adjust this path if db.php is in a different folder
-// If db.php is in the main folder and this file is in 'pages/', use '../db.php'
 require '../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login_btn'])) {
@@ -112,12 +110,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login_btn'])) {
               </form>
             </div>
             
-            <footer class="footer-text">
-              <span class="highlight">SeeiMU Website</span> | © Copyright 2025 SeeiMUU | Barangay Document Request System
-            </footer>
           </div>
         </div>
       </section>
+      <footer class="footer-text" class="login-footer">
+              <span class="highlight">SeeiMU Website</span> | © Copyright 2025 SeeiMUU | Barangay Document Request System
+            </footer>
     </div>
   </main>
 </body>

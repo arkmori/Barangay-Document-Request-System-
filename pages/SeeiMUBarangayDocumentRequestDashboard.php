@@ -62,6 +62,41 @@ if (!isset($_SESSION['user_id'])) { header("Location: SeeiMUBarangayDocumentRequ
           <h1 class="hero-title">Fast and convenient access to barangay documents</h1>
           <button class="request-button" onclick="window.location.href='create_request.php'">REQUEST NOW</button>
         </section>
+         <section class="cards-section">
+          <article class="card">
+            <header class="card-header">Announcement</header>
+            <div class="card-content">
+              <p class="announcement-text">
+                Please be advised that the Barangay Office will be conducting its Year-End Planning...
+              </p>
+            </div>
+          </article>
+
+          <article class="card transaction-card">
+            <header class="card-header">Transaction Days</header>
+            <div class="card-content">
+              <p class="transaction-text">
+                11/23/25 - no transaction<br>
+                11/23/25 - 7:00 a.m. to 11:30 a.m.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <section class="faq-section">
+          <header class="faq-header">Frequently Asked Questions</header>
+          <div class="faq-content">
+            <div class="faq-item">How long does it take to process a document request?</div>
+            <div class="faq-item">How will I be notified when my document is ready?</div>
+            <div class="faq-item">What valid IDs are accepted for claiming a document?</div>
+          </div>
+        </section>
+
+        <footer>
+          <p class="footer-text">
+            <span class="highlight">SeeiMU Website</span> | © Copyright 2025 SeeiMUU
+          </p>
+        </footer>
         </div>
     </main>
      <aside class="right-sidebar">
